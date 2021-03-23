@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  mongo:
+    hostname: mongo
+    image: mongo:4.4.4
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  rabbitmq:
+    image: rabbitmq:alpine
+    ports:
+      - "5672:5672"
+
+  mariadb:
+    image: mariadb:10.5.9
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: iam
